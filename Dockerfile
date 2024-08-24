@@ -1,4 +1,4 @@
-# A Dockerfile to build an RT kernel for the RPI4 based on Ubuntu 20.04 or 22.04 RPI4 kernel
+# A Dockerfile to build an RT kernel for the RPI5 based on Ubuntu 24.04 RPI5 kernel
 #
 # If run without parameters the Docker image is created to built RT_PREEMPT patched version of the latest 5.15 raspi kernel
 # The Docker build command accepts the following build arguments:
@@ -36,7 +36,7 @@
 # copy deb packages to the host, or directly to the RPI4 target
 # $ scp ../*.deb <user>@172.17.0.1:/home/<user>/.
 
-FROM ubuntu:jammy
+FROM ubuntu:noble
 
 USER root
 ARG DEBIAN_FRONTEND=noninteractive
@@ -52,8 +52,8 @@ ARG HOST_ARCH=amd64
 ARG UNAME_R
 ARG RT_PATCH
 ARG triple=aarch64-linux-gnu
-ARG KERNEL_VERSION=5.15.0
-ARG UBUNTU_VERSION=jammy
+ARG KERNEL_VERSION=6.8.0
+ARG UBUNTU_VERSION=noble
 ARG LTTNG_VERSION=2.13
 ARG KERNEL_DIR=linux-raspi
 
